@@ -28,7 +28,7 @@ namespace Financial_Manager.Controllers
         [HttpPost]
         public async Task<IActionResult> PostStockInfo([FromBody] UserStockInfo stockInfo)
         {
-            await _mongoDBService.Crea(stockInfo);
+            await _mongoDBService.InsertOneAsync(stockInfo);
             return CreatedAtAction(nameof(PostStockInfo), new
             {
                 id = stockInfo.Id,
